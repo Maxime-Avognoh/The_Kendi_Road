@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar-thumb { background: #1e1e2a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #e11d48; }
+
+body { background: #0a0a0f; color: white; font-family: system-ui, sans-serif; }
+
+.panel-section {
+  @apply bg-[#111118] border border-[#1e1e2a] rounded-xl p-5;
+}
+
+.section-title {
+  @apply text-xs font-bold uppercase tracking-widest text-red-500 mb-4 flex items-center gap-2;
+}
+
+.field-label {
+  @apply text-xs text-gray-500 uppercase tracking-wider mb-1 block;
+}
+
+.field-value {
+  @apply text-sm text-gray-200 leading-relaxed;
+}
+
+.input-field {
+  @apply w-full bg-[#0a0a0f] border border-[#1e1e2a] rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-red-500/50 transition-colors;
+}
+
+.textarea-field {
+  @apply w-full bg-[#0a0a0f] border border-[#1e1e2a] rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-red-500/50 transition-colors resize-none;
+}
+
+.btn-primary {
+  @apply bg-red-600 hover:bg-red-500 text-white font-semibold px-4 py-2 rounded-lg transition-colors flex items-center gap-2 text-sm;
+}
+
+.btn-secondary {
+  @apply bg-[#1e1e2a] hover:bg-[#2a2a38] text-gray-300 font-medium px-4 py-2 rounded-lg transition-colors flex items-center gap-2 text-sm;
+}
+
+.btn-ghost {
+  @apply hover:bg-[#1e1e2a] text-gray-400 hover:text-white font-medium px-3 py-2 rounded-lg transition-colors flex items-center gap-2 text-sm;
+}
+
+.card-hover {
+  @apply transition-all duration-200 hover:border-red-500/30 hover:bg-[#14141c] cursor-pointer;
+}
+
+.badge {
+  @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+}
+
+.delete-btn {
+  @apply text-gray-600 hover:text-red-500 transition-colors p-1 rounded;
+}

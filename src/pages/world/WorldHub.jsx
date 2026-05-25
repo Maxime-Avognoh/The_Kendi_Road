@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Globe, Map, BookOpen, Zap, Users2, Save, Pencil, Eye } from 'lucide-react'
 import { useApp } from '../../context/AppContext.jsx'
+import QualityPanel from '../../components/QualityPanel.jsx'
+import { analyzeWorld } from '../../utils/qualityAnalyzer.js'
 
 const TABS = [
   { key: 'world', label: 'Le Monde', icon: Globe },
@@ -55,6 +57,7 @@ export default function WorldHub() {
   const data = editing ? draft : worldData
 
   const isEmpty = !worldData.worldName && !worldData.description
+  const worldAnalysis = analyzeWorld(worldData)
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
@@ -95,6 +98,13 @@ export default function WorldHub() {
           </button>
         ))}
       </div>
+
+      {/* Quality Panel — toujours visible */}
+      {!editing && (
+        <div className="mb-6">
+          <QualityPanel analysis={worldAnalysis} title="Développement du monde" />
+        </div>
+      )}
 
       {isEmpty && !editing ? (
         <div className="panel-section text-center py-16">

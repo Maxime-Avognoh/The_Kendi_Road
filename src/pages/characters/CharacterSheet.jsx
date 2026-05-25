@@ -2,6 +2,8 @@ import React from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Pencil, Trash2, User, Eye, Brain, Clock, Zap, BookOpen, Heart, StickyNote, Swords } from 'lucide-react'
 import { useApp } from '../../context/AppContext.jsx'
+import QualityPanel from '../../components/QualityPanel.jsx'
+import { analyzeCharacter } from '../../utils/qualityAnalyzer.js'
 
 const ROLE_COLORS = {
   Protagoniste: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
@@ -85,9 +87,10 @@ export default function CharacterSheet() {
 
   const avatarColor = char.themeColor || '#e11d48'
   const initials = getInitials(char.name)
+  const analysis = analyzeCharacter(char)
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-6 max-w-5xl mx-auto">
       {/* Header */}
       <div className="flex items-center gap-3 mb-6 flex-wrap">
         <Link to="/personnages" className="btn-ghost">
@@ -142,6 +145,11 @@ export default function CharacterSheet() {
             </blockquote>
           )}
         </div>
+      </div>
+
+      {/* Quality Panel */}
+      <div className="mb-4">
+        <QualityPanel analysis={analysis} title="Développement du personnage" compact={false} />
       </div>
 
       <div className="grid lg:grid-cols-2 gap-4">

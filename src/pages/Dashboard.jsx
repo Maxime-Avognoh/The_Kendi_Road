@@ -13,7 +13,8 @@ import {
   Flame,
   Star,
   ArrowRight,
-  Lightbulb
+  Lightbulb,
+  Globe
 } from 'lucide-react'
 import { useApp } from '../context/AppContext.jsx'
 

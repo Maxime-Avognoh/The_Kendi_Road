@@ -28,23 +28,32 @@ body { background: #0a0a0f; color: white; font-family: system-ui, sans-serif; }
 }
 
 .input-field {
-  @apply w-full bg-[#0a0a0f] border border-[#1e1e2a] rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-red-500/50 transition-colors;
+  @apply w-full bg-[#0a0a0f] border border-[#1e1e2a] rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600
+         focus:outline-none focus:border-red-500/50 transition-colors;
 }
 
 .textarea-field {
-  @apply w-full bg-[#0a0a0f] border border-[#1e1e2a] rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-red-500/50 transition-colors resize-none;
+  @apply w-full bg-[#0a0a0f] border border-[#1e1e2a] rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600
+         focus:outline-none focus:border-red-500/50 transition-colors resize-none;
+}
+
+select.input-field {
+  @apply appearance-none cursor-pointer;
 }
 
 .btn-primary {
-  @apply bg-red-600 hover:bg-red-500 text-white font-semibold px-4 py-2 rounded-lg transition-colors flex items-center gap-2 text-sm;
+  @apply bg-red-600 hover:bg-red-500 text-white font-semibold px-4 py-2 rounded-lg
+         transition-colors flex items-center gap-2 text-sm cursor-pointer;
 }
 
 .btn-secondary {
-  @apply bg-[#1e1e2a] hover:bg-[#2a2a38] text-gray-300 font-medium px-4 py-2 rounded-lg transition-colors flex items-center gap-2 text-sm;
+  @apply bg-[#1e1e2a] hover:bg-[#2a2a38] text-gray-300 font-medium px-4 py-2 rounded-lg
+         transition-colors flex items-center gap-2 text-sm cursor-pointer;
 }
 
 .btn-ghost {
-  @apply hover:bg-[#1e1e2a] text-gray-400 hover:text-white font-medium px-3 py-2 rounded-lg transition-colors flex items-center gap-2 text-sm;
+  @apply hover:bg-[#1e1e2a] text-gray-400 hover:text-white font-medium px-3 py-2 rounded-lg
+         transition-colors flex items-center gap-2 text-sm cursor-pointer;
 }
 
 .card-hover {
@@ -56,5 +65,11 @@ body { background: #0a0a0f; color: white; font-family: system-ui, sans-serif; }
 }
 
 .delete-btn {
-  @apply text-gray-600 hover:text-red-500 transition-colors p-1 rounded;
+  @apply text-gray-600 hover:text-red-500 transition-colors p-1.5 rounded hover:bg-red-500/10;
+}
+
+/* Score animation */
+@keyframes scoreReveal {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: var(--target-offset); }
 }
